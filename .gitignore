@@ -13,3 +13,15 @@ buildNumber.properties
 
 ObjectStore
 
+/nbactions.xml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea
