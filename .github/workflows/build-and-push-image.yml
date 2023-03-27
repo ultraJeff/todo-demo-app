@@ -47,6 +47,7 @@ jobs:
         pwd
         ls -lath . 
         find . -print
+        rm -rf .dockerignore
         docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
 
     #- name: Push Docker Image
