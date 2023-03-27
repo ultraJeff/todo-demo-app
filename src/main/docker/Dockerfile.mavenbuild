@@ -11,7 +11,7 @@ COPY pom.xml .
 RUN mvn -B dependency:resolve dependency:resolve-plugins
 
 # Copy the source code to the working directory
-COPY ./src/ ./src/
+COPY /home/runner/work/todo-demo-app/todo-demo-app/src/ ./src/
 
 # Build the application
 RUN mvn -B clean package
