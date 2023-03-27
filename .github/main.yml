@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  native_build:
+    runs-on: ubuntu-latest
+    name: Build native Quarkus app
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@master
+      - name: Build native executable
+        uses: maxday/quarkus-native-build-docker-action@1
+        with:
+          outputName: app-runner
