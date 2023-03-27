@@ -41,15 +41,8 @@ jobs:
         username: ${{ secrets.QUAY_IO_USERNAME }}
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
-
-    - name: Build and push
-      uses: docker/build-push-action@v4
-      with:
-        context: .
-        file: src/main/docker/Dockerfile.mavenbuild
-        push: false
-        tags: quay.io/takinosh/todo-demo-app:latest
-
+    - name: Build Docker image
+      run: docker build -f src/main/docker/Dockerfile.mavenbuild -t your-docker-hub-username/your-image-name:latest .
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
