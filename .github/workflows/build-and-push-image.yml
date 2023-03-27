@@ -42,6 +42,7 @@ jobs:
         image: takinosh/todo-demo-app
         registry: quay.io
         enableBuildKit: true
+        context: /home/runner/work/todo-demo-app/todo-demo-app
         dockerfile: /home/runner/work/todo-demo-app/todo-demo-app/src/main/docker/Dockerfile.jvm
         username: ${{ secrets.QUAY_IO_USERNAME }}
         password: ${{ secrets.QUAY_IO_PASSWORD }}
