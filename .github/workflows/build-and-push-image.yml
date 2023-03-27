@@ -38,7 +38,7 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
-        image: quay.io/takinosh/todo-demo-app:latest
+        image: quay.io/takinosh/todo-demo-app
         registry: quay.io
         enableBuildKit: true
         dockerfile: src/main/docker/Dockerfile.jvm
