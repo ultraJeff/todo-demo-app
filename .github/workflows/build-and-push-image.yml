@@ -24,6 +24,7 @@ jobs:
 
     - name: test result
       run: |
+        pwd
         ls -lath . 
         ls -R target
 
