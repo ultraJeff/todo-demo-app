@@ -23,8 +23,8 @@ jobs:
         username: ${{ secrets.QUAY_IO_USERNAME }}
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
-    #- name: Build Docker Image
-    #  run: docker build --pull --file src/main/docker/Dockerfile.native -t $IMAGE_NAME .
+    - name: Build Docker Image
+      run: docker build --pull --file src/main/docker/Dockerfile.native -t $IMAGE_NAME .
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
