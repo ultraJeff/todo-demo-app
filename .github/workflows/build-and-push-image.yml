@@ -45,7 +45,8 @@ jobs:
       run: |
         ls -lath . 
         find . -print
-        docker build -f src/main/docker/Dockerfile.jvm -t your-docker-hub-username/your-image-name:latest .
+        cp src/main/docker/Dockerfile.jvm Dockerfile
+        docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
