@@ -44,6 +44,7 @@ jobs:
     - name: Build Docker image
       working-directory: .
       run: |
+        pwd
         ls -lath . 
         find . -print
         docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
