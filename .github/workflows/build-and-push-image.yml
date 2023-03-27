@@ -48,7 +48,7 @@ jobs:
         context: .
         file: src/main/docker/Dockerfile.mavenbuild
         build-contexts: |
-          /home/runner/work/todo-demo-app/todo-demo-app
+          .
         push: false
         tags: quay.io/takinosh/todo-demo-app:latest
 
