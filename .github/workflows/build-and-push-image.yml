@@ -44,11 +44,11 @@ jobs:
     - name: Build Docker image
       working-directory: /home/runner/work/todo-demo-app/todo-demo-app
       run: |
-        pwd
-        ls -lath . 
-        find . -print
+        #pwd
+        #ls -lath .
+        #find . -print
         rm -rf .dockerignore
-        docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
-
+        #docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
+        docker build -f src/main/docker/Dockerfile.jvm -t quay.io/your-quay-username/your-image-name:latest .
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
