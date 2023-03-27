@@ -41,11 +41,15 @@ jobs:
         username: ${{ secrets.QUAY_IO_USERNAME }}
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
-    - name: Build Docker image
-      run: |
-        ls -lath . 
-        find . -print
-        docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./Dockerfile
+        push: false
+        tags: |
+          test-image:latest
+          test-image:latest
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
