@@ -34,11 +34,24 @@ jobs:
         username: ${{ secrets.QUAY_IO_USERNAME }}
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
+
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & push Docker image
+      with:
+        image: quay.io/takinosh/todo-demo-app:latest
+        registry: quay.io
+        enableBuildKit: true
+        dockerfile: src/main/docker/Dockerfile.jvm
+        username: ${{ secrets.QUAY_IO_USERNAME }}
+        password: ${{ secrets.QUAY_IO_PASSWORD }}
+
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
         context: .
         file: src/main/docker/Dockerfile.jvm
+        build-contexts: |
+          .
         push: false
         tags: quay.io/takinosh/todo-demo-app:latest
 
