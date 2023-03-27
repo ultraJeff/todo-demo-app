@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: centos-8
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -20,9 +20,6 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-
-    - name: Install Maven
-      run: sudo dnf install -y maven
 
     - name: Build with Maven
       run: mvn -B clean package -DskipTests=true
