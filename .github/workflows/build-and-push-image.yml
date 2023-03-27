@@ -37,6 +37,10 @@ jobs:
         username: ${{ secrets.QUAY_IO_USERNAME }}
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
+    - name: Set up environment variables
+      run: |
+        export IMAGE_NAME=my-docker-image
+
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
