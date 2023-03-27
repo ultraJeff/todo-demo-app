@@ -5,7 +5,7 @@ FROM maven:3.8.3-openjdk-17 as build
 WORKDIR /app
 
 # Copy the pom.xml file to the working directory
-COPY pom.xml .
+COPY /home/runner/work/todo-demo-app/todo-demo-app/src/pom.xml .
 
 # Download dependencies in a separate layer for better caching
 RUN mvn -B dependency:resolve dependency:resolve-plugins
