@@ -20,7 +20,7 @@ jobs:
         distribution: oracle
 
     - name: Cache Maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -47,8 +47,6 @@ jobs:
       with:
         context: .
         file: src/main/docker/Dockerfile.mavenbuild
-        build-contexts: |
-          .
         push: false
         tags: quay.io/takinosh/todo-demo-app:latest
 
