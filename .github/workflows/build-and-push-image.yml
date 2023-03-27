@@ -42,7 +42,10 @@ jobs:
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -f src/main/docker/Dockerfile.mavenbuild -t your-docker-hub-username/your-image-name:latest .
+      run: |
+        ls -lath . 
+        pwd 
+        docker build -f src/main/docker/Dockerfile.mavenbuild -t your-docker-hub-username/your-image-name:latest .
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
