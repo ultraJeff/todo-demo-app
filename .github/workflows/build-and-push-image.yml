@@ -14,9 +14,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set docker image name env
-      run: echo ::set-env name=DOCKER_IMAGE_NAME::quay.io/takinosh/todo-demo-app
+      run: echo ::set-env name=IMAGE_NAME::quay.io/takinosh/todo-demo-app
     - name: Set docker image tag env
-      run: echo ::set-env name=DOCKER_TAG_VERSION::$(echo ${GITHUB_REF#refs/*/})
+      run: echo ::set-env name=TAG_VERSION::$(echo ${GITHUB_REF#refs/*/})
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -53,7 +53,7 @@ jobs:
         #ls -lath .
         #find . -print
         rm -rf .dockerignore
-        #docker build -f Dockerfile -t your-docker-hub-username/your-image-name:latest .
-        docker build -f src/main/docker/Dockerfile.jvm -t quay.io/your-quay-username/your-image-name:latest .
+        #docker build -f src/main/docker/Dockerfile -t $IMAGE_NAME:$TAG_VERSION .
+        docker build -f src/main/docker/Dockerfile.jvm -t $IMAGE_NAME:$TAG_VERSION .
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
