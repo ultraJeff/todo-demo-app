@@ -19,9 +19,15 @@ jobs:
         java-version: '17'
         distribution: oracle
 
-    - name: Build with Maven
-      run: mvn package
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
 
+    - name: Build with Maven
+      run: mvn clean package
     - name: test result
       run: |
         pwd
@@ -36,16 +42,8 @@ jobs:
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
 
-    - uses: mr-smithers-excellent/docker-build-push@v6
-      name: Build & push Docker image
-      with:
-        image: takinosh/todo-demo-app
-        registry: quay.io
-        enableBuildKit: true
-        context: /home/runner/work/todo-demo-app/todo-demo-app
-        dockerfile: /home/runner/work/todo-demo-app/todo-demo-app/src/main/docker/Dockerfile.jvm
-        username: ${{ secrets.QUAY_IO_USERNAME }}
-        password: ${{ secrets.QUAY_IO_PASSWORD }}
+    - name: Build Docker image
+      run: docker build -t your-docker-hub-username/your-image-name:latest .
 
     - name: Build and push
       uses: docker/build-push-action@v4
