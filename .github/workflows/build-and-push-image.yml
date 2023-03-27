@@ -45,7 +45,7 @@ jobs:
       run: |
         ls -lath . 
         find . -print
-        docker build -f src/main/docker/Dockerfile.mavenbuild -t your-docker-hub-username/your-image-name:latest .
+        docker build -f src/main/docker/Dockerfile.jvm -t your-docker-hub-username/your-image-name:latest .
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
