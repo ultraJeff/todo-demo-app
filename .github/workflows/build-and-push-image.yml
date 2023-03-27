@@ -45,7 +45,7 @@ jobs:
       run: |
         ls -lath . 
         pwd 
-        docker build -f src/main/docker/Dockerfile.mavenbuild -t your-docker-hub-username/your-image-name:latest .
+        docker build -f src/main/docker/Dockerfile.mavenbuild -t your-docker-hub-username/your-image-name:latest /home/runner/work/todo-demo-app/todo-demo-app
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
