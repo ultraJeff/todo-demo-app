@@ -24,7 +24,7 @@ jobs:
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build --pull --file src/main/docker/Dockerfile.native -t $IMAGE_NAME .
+      run: docker build --pull --file src/main/docker/Dockerfile.jvm -t $IMAGE_NAME .
 
     #- name: Push Docker Image
     #  run: docker push $IMAGE_NAME
