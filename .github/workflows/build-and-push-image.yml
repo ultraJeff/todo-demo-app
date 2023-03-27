@@ -42,7 +42,7 @@ jobs:
         password: ${{ secrets.QUAY_IO_PASSWORD }}
 
     - name: Build Docker image
-      working-directory: .
+      working-directory: /home/runner/work/todo-demo-app/todo-demo-app
       run: |
         pwd
         ls -lath . 
