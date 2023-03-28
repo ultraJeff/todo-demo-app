@@ -40,13 +40,6 @@ jobs:
         ls -lath . 
         ls -R target
 
-    - name: Login to Quay.io
-      uses: docker/login-action@v2
-      with:
-        registry: quay.io
-        username: ${{ secrets.QUAY_IO_USERNAME }}
-        password: ${{ secrets.QUAY_IO_PASSWORD }}
-
     - name: Build Docker image
       working-directory: /home/runner/work/todo-demo-app/todo-demo-app
       run: |
@@ -57,8 +50,8 @@ jobs:
         #docker build -f src/main/docker/Dockerfile -t ${{ env.IMAGE_NAME }}:$TAG_VERSION .
         docker build -f src/main/docker/Dockerfile.jvm -t ${{ env.IMAGE_NAME }}:$TAG_VERSION .
 
-    #- name: Log in to Docker Hub
-    #  run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+    - name: Log in to  Quay.io
+      run: echo "${{ secrets.QUAY_IO_PASSWORD }}" | docker login -u "${{ secrets.QUAY_IO_USERNAME }}" --password-stdin quay.io
 
     - name: Push Docker Image
       run: docker push ${{ env.IMAGE_NAME }}
