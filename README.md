@@ -5,6 +5,8 @@ This is an example application based on a Todo list where the different tasks ar
 [![Build and Test](https://github.com/tosin2013/todo-demo-app/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/tosin2013/todo-demo-app/actions/workflows/build-and-test.yml)  
 [![Build and Push Container Image](https://github.com/tosin2013/todo-demo-app/actions/workflows/build-and-push-image.yml/badge.svg)](https://github.com/tosin2013/todo-demo-app/actions/workflows/build-and-push-image.yml)
 
+![20230327233144](https://i.imgur.com/FVKNkb6.png)
+![20230327233210](https://i.imgur.com/eMr3hat.png)
 ## Branches:
 * `master` - use H2 (in memory), no native support
 * `postgresql` - use posgresql, support native mode 
