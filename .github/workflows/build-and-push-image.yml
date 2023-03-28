@@ -15,9 +15,9 @@ jobs:
 
     - name: Set docker image name env
       run: echo "IMAGE_NAME=quay.io/takinosh/todo-demo-app" >> $GITHUB_ENV
-      
+
     - name: Set docker image tag env
-      run: echo "TAG_VERSION=$(echo ${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      run: echo "TAG_VERSION=$(echo ${GITHUB_REF#refs/*/})" >> $GITHUB_ENV
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
