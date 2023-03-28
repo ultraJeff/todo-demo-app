@@ -22,16 +22,8 @@ jobs:
         java-version: '17'
         distribution: oracle
 
-    - name: Set env variables for testing
-      run: |
-        echo "POSTGRES_URL='jdbc:postgresql://todo-database:5432/todo-database'" >> $GITHUB_ENV
-        echo "POSTGRES_USER=github" >> $GITHUB_ENV
-        echo "POSTGRES_URL=actions" >> $GITHUB_ENV
-
     - name: Build with Maven
-      run: |
-        ./mvnw quarkus:add-extension -Dextensions="jdbc-postgresql"
-        mvn -B clean package -DskipTests=true
+      run: mvn -B clean package -DskipTests=true
 
     - name: Test with Maven
       run: mvn -B test
