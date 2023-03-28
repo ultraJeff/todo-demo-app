@@ -22,7 +22,7 @@ jobs:
         java-version: '17'
         distribution: oracle
 
-    - name: Set docker image tag env
+    - name: Set env variables for testing
       run: |
         echo "POSTGRES_URL='jdbc:postgresql://todo-database:5432/todo-database'" >> $GITHUB_ENV
         echo "POSTGRES_USER=github" >> $GITHUB_ENV
